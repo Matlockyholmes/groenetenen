@@ -2,12 +2,11 @@ package be.vdab.groenetenen.services;
 
 import be.vdab.groenetenen.domain.Werknemer;
 import be.vdab.groenetenen.repositories.WerknemerRepository;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true, isolation = Isolation.READ_COMMITTED)
@@ -19,7 +18,7 @@ public class DefaultWerknemerService implements WerknemerService {
     }
 
     @Override
-    public List<Werknemer> findAll() {
-        return werknemerRepository.findAll(Sort.by("familienaam", "voornaam"));
+    public Page<Werknemer> findAll(Pageable pageable) {
+        return werknemerRepository.findAll(pageable);
     }
 }

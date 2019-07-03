@@ -1,9 +1,9 @@
 package be.vdab.groenetenen.services;
 
 import be.vdab.groenetenen.domain.Werknemer;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface WerknemerService {
-    List<Werknemer> findAll();
+    Page<Werknemer> findAll(Pageable pageable);
 }
