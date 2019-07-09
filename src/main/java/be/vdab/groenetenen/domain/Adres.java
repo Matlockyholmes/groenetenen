@@ -1,6 +1,6 @@
 package be.vdab.groenetenen.domain;
 
-import org.hibernate.validator.constraints.Range;
+import be.vdab.groenetenen.constraints.Postcode;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +15,7 @@ public class Adres implements Serializable {
     @NotBlank
     private String huisNr;
     @NotNull
-    @Range(min = 1000, max = 9999)
+    @Postcode
     private int postcode;
     @NotBlank
     private String gemeente;
