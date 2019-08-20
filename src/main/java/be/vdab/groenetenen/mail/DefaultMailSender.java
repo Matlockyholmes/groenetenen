@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import javax.mail.MessagingException;
@@ -22,6 +23,7 @@ public class DefaultMailSender implements MailSender {
     }
 
     @Override
+    @Async
     public void nieuweOfferte(Offerte offerte, String offertesURL) {
         try {
             MimeMessage message = sender.createMimeMessage();
